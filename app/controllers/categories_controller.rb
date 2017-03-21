@@ -9,6 +9,7 @@ class CategoriesController < ActionController::Base
     if @category.save
       redirect_to @category
     else
+      flash.now[:error] = "Não foi possível criar categoria."
       render 'new'
     end
   end
