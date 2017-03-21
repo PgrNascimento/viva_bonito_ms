@@ -1,8 +1,8 @@
 <%= flash[:error] %>
 
 <%= simple_form_for @budget do |f| %>
-  <%= f.input :start_date, label: "Início da Viagem", as: :date, error: "Campo Obrigatório" %>
-  <%= f.input :end_date, label: "Fim da Viagem", as: :date, error: "Campo Obrigatório" %>
+  <%= f.input :start_date, label: "Início da Viagem", as: :string, error: "Campo Obrigatório" %>
+  <%= f.input :end_date, label: "Fim da Viagem", as: :string, error: "Campo Obrigatório" %>
   <%= f.input :tour_name, label: "Nome do Passeio", error: "Campo Obrigatório" %>
   <%= f.input :quantity_adults, label: "Quantidade de Adultos", error: "Campo Obrigatório" %>
   <%= f.input :quantity_children, label: "Quantidade de Crianças", error: "Campo Obrigatório" %>

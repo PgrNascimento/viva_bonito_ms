@@ -10,8 +10,8 @@ feature 'visitor enters trip information' do
 
     click_on 'Criar Orçamento'
 
-    select budget.start_date.year,      from: 'Início da Viagem'
-    select budget.end_date.year,        from: 'Fim da Viagem'
+    fill_in 'Início da Viagem',         with: budget.start_date
+    fill_in 'Fim da Viagem',            with: budget.end_date
     fill_in 'Nome do Passeio',          with: budget.tour_name
     fill_in 'Quantidade de Adultos',    with: budget.quantity_adults
     fill_in 'Quantidade de Crianças',   with: budget.quantity_children
@@ -19,8 +19,8 @@ feature 'visitor enters trip information' do
 
     click_on 'Exibir Orçamento'
 
-    expect(page).to have_content(budget.start_date.year)
-    expect(page).to have_content(budget.end_date.year)
+    expect(page).to have_content(budget.start_date)
+    expect(page).to have_content(budget.end_date)
     expect(page).to have_content(budget.tour_name)
     expect(page).to have_content(budget.quantity_adults)
     expect(page).to have_content(budget.quantity_children)
