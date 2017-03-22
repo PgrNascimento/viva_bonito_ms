@@ -1,0 +1,13 @@
+<%= simple_form_for @tour do |f| %>
+  <p><%= flash[:notice] %></p>
+  <%= f.input :name, label: 'Nome' %>
+  <%= f.input :description, label: 'Descrição' %>
+  <%= f.association :category, label: 'Categoria' %>
+  <%= f.input :attraction, label: 'Atrativo' %>
+  <%= f.input :duration, label: 'Duração' %>
+  <%= f.input :adult_price, label: 'Preço por Adulto' %>
+  <%= f.input :child_price, label: 'Preço por Criança' %>
+  <%= f.input :baby_price, label: 'Preço por Bebê' %>
+  <%= f.input :distance, label: 'Distância' %>
+  <%= f.submit txt_submit %>
+<% end %>
