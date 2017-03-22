@@ -24,7 +24,7 @@ feature 'user informs high season period' do
 
   scenario 'with an end_date that is smaller than the start_date' do
 
-    high_season = build(:high_season, start_date: '2016-01-05', end_date: '2015-01-05')
+    high_season = build(:high_season,name:'Feriado', start_date: '2016-01-05', end_date: '2015-01-05')
 
     visit root_path
 
@@ -37,10 +37,10 @@ feature 'user informs high season period' do
     click_on 'Salvar'
 
     expect(page).to have_content('Período inválido.')
-    expect(page).to have_content('Informações não foram salvas.')
-    expect(page).to have_content(high_season.name)
-    expect(page).to have_content(high_season.start_date)
-    expect(page).to have_content(high_season.end_date)
+    expect(page).to have_content('Não foi possível salvar a Alta Temporada')
+    expect(page).to have_field('Nome', with: 'Feriado' )
+    expect(page).to have_field('Início', with: '2016-01-05' )
+    expect(page).to have_field('Fim', with: '2015-01-05' )
 
   end
 
@@ -50,7 +50,7 @@ feature 'user informs high season period' do
     click_on 'Cadastrar Alta Temporada'
     click_on 'Salvar'
 
-    expect(page).to have_content('Todos os campos são obrigatórios. Informações não foram salvas.')
+    expect(page).to have_content('Não foi possível salvar a Alta Temporada')
 
   end
 
