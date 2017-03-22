@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :tours, only: [:new, :create, :show, :edit, :update]
-  root 'home#index'
-  resources :budgets, only: [ :new, :create, :show, :edit, :update ]
-  resources :categories, only: ['new', 'create', 'show']
+  devise_for :users
 
+  root 'home#index'
+  resources :tours, only: [:new, :create, :show, :edit, :update]
+  resources :budgets, only: [ :new, :create, :show, :edit, :update ]
+  resources :categories, only: ['index', 'new', 'create', 'show']
+  resource :dashboard, only: ['show']
 end

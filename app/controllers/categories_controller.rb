@@ -1,4 +1,10 @@
 class CategoriesController < ActionController::Base
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+
+  def index
+    @categories = Category.all
+  end
+
   def new
     @category = Category.new
   end

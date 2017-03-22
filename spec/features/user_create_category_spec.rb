@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 feature 'User create category' do
+  before(:each) do
+    user = create(:user, email: 'email@email.com', password: 'epanenem')
+    sign_in user
+  end
+
   scenario 'successfully' do
     category = build(:category, name: 'Aventura')
 

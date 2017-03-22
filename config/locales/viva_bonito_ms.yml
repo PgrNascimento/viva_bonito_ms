@@ -2,6 +2,9 @@ pt-BR:
   activerecord:
     models:
       category: "Categoria"
+      user: "Usuário"
     attributes:
       category:
         name: "Nome"
+      user:        
+        password: "Senha"

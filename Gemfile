@@ -41,6 +41,8 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 # Use Simpleform for forms
 gem 'simple_form'
 
+gem 'devise'
+
 gem 'simplecov', :require => false, :group => :test
 
 group :development, :test do
