@@ -12,6 +12,23 @@
 
 ActiveRecord::Schema.define(version: 20170321011724) do
 
+  create_table "budgets", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string   "tour_name"
+    t.integer  "quantity_adults"
+    t.integer  "quantity_children"
+    t.integer  "quantity_babies"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tours", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
