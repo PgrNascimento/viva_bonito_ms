@@ -2,13 +2,16 @@ require 'rails_helper'
 
 feature 'User creates tour' do
   scenario 'successfully' do
-    tour = build(:tour)
+
+    category = create(:category, name: 'Flutuação')
+
+    tour = build(:tour, category: category)
 
     visit new_tour_path
 
     fill_in 'Nome', with: tour.name
     fill_in 'Descrição', with: tour.description
-    fill_in 'Categoria', with: tour.category
+    select  tour.category.name, from: 'Categoria'
     fill_in 'Atrativo', with: tour.attraction
     fill_in 'Duração', with: tour.duration
     fill_in 'Preço por Adulto', with: tour.adult_price
@@ -20,7 +23,7 @@ feature 'User creates tour' do
 
      expect(page).to have_content tour.name
      expect(page).to have_content tour.description
-     expect(page).to have_content tour.category
+     expect(page).to have_content tour.category.name
      expect(page).to have_content tour.attraction
      expect(page).to have_content tour.duration
      expect(page).to have_content tour.adult_price
