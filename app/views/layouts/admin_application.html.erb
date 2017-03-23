@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="http://localhost:3000/" target="_self">
+    <title>VivaBonito</title>
+    <%= csrf_meta_tags %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <%= render 'layouts/admin/header' %>
+
+      <div id="page-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+            <%= yield %>
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -36,12 +36,14 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Use Bootstrap for design layout
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'bootstrap-sass', '~> 3.3.6'
 
 # Use Simpleform for forms
 gem 'simple_form'
 
 gem 'devise'
+
+gem "font-awesome-rails"
 
 gem 'simplecov', :require => false, :group => :test
 
