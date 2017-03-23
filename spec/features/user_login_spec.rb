@@ -7,8 +7,6 @@ feature 'User logins as Admin' do
 
     visit new_user_session_path
 
-    save_and_open_page
-
     fill_in 'Email', with: user.email
     fill_in 'Senha', with: user.password
 

@@ -9,7 +9,7 @@ feature 'User create category' do
   scenario 'successfully' do
     category = build(:category, name: 'Aventura')
 
-    visit new_category_path
+    visit new_admin_category_path
 
     fill_in 'Nome', with: category.name
 
@@ -19,7 +19,7 @@ feature 'User create category' do
   end
 
   scenario 'and fills nothing' do
-    visit new_category_path
+    visit new_admin_category_path
 
     click_on 'Criar Categoria'
 
