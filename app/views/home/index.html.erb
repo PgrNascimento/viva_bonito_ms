@@ -1,3 +1,21 @@
 <%= link_to 'Criar Orçamento', new_budget_path %>
 <%= link_to 'Cadastrar Alta Temporada', new_high_season_path %>
 <%= link_to 'Novo Passeio', new_tour_path %>
+
+
+<table id="passeios">
+  <tr>
+      <th>Nome</th>
+      <th>Atrativo</th>
+      <th>Categoria</th>
+      <th>Site</th>
+  </tr>
+  <% @tours.each do |tour| %>
+    <tr>
+      <td><%= link_to tour.name, tour_path(tour) %></td>
+      <td><%= tour.attraction %></td>
+      <td><%= tour.category.name %></td>
+      <td><%= link_to tour.site, tour.site %></td>
+   </tr>
+  <% end %>
+</table>
