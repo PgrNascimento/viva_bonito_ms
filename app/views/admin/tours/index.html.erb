@@ -1,0 +1,5 @@
+<% @tours.each do |tour| %>
+  <%= link_to tour.name, admin_tours_path(tour) %>
+<% end %>
+
+<%= link_to 'Novo Passeio', new_admin_tour_path %>
