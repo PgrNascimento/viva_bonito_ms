@@ -1,0 +1,9 @@
+<%= flash[:error] %>
+
+<%= simple_form_for @high_season do |f| %>
+  <%= f.input :name, label: "Nome" %>
+  <%= f.input :start_date, label: "Início", as: :string %>
+  <%= f.input :end_date, label: "Fim", as: :string %>
+  <%= f.submit 'Salvar' %>
+
+<% end %>

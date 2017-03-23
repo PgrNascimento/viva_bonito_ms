@@ -2,10 +2,14 @@ pt-BR:
   activerecord:
     models:
       category: Categoria
+      user: Usuário
       price: Preço
     attributes:
       category:
         name: Nome
+
+      user:
+        password: Senha
       price:
         low_season: Baixa Temporada
         high_season: Alta Temporada

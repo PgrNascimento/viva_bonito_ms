@@ -3,11 +3,10 @@ require 'rails_helper'
 feature 'User creates tour' do
   scenario 'successfully' do
 
-    category = create(:category, name: 'Flutuação')
+    tour = build(:tour)
 
-    tour = build(:tour, category: category)
-
-    visit new_tour_path
+    visit root_path
+    click_on 'Novo Passeio'
 
     fill_in 'Nome', with: tour.name
     fill_in 'Descrição', with: tour.description
@@ -18,6 +17,7 @@ feature 'User creates tour' do
     fill_in 'Preço por Criança', with: tour.child_price
     fill_in 'Preço por Bebê', with: tour.baby_price
     fill_in 'Distância', with: tour.distance
+    fill_in 'Site', with: tour.site
 
     click_on 'Salvar Passeio'
 
@@ -30,12 +30,14 @@ feature 'User creates tour' do
      expect(page).to have_content tour.child_price
      expect(page).to have_content tour.baby_price
      expect(page).to have_content tour.distance
+     expect(page).to have_content tour.site
 
   end
 
   scenario 'With invalid data' do
-    visit new_tour_path
 
+    visit root_path
+    click_on 'Novo Passeio'
     click_on 'Salvar Passeio'
 
     expect(page).to have_content 'Passeio não pode ser cadastrado, verifique os dados'
