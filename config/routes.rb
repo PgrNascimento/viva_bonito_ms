@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :budgets, only: [ :new, :create, :show, :edit, :update ]
   resources :categories, only: ['new', 'create', 'show']
+  resources :prices, only: [:new, :create, :show]
 
 end

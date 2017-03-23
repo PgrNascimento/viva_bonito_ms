@@ -1,7 +1,12 @@
 pt-BR:
   activerecord:
     models:
-      category: "Categoria"
+      category: Categoria
+      price: Preço
     attributes:
       category:
-        name: "Nome"
+        name: Nome
+      price:
+        low_season: Baixa Temporada
+        high_season: Alta Temporada
+        baby_price: Preço por Bebê
