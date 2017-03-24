@@ -2,8 +2,19 @@
 <%= link_to 'Cadastrar Alta Temporada', new_high_season_path %>
 <%= link_to 'Novo Passeio', new_tour_path %>
 
+<%= form_tag(home_filter_period_path, method: :get) do %>
 
-<table id="passeios">
+  <%= label_tag :filter_from, 'Desde:' %>
+  <%= text_field_tag :filter_from, @from, :class => "form-control datepicker", :placeholder => "Desde" %>
+
+  <%= label_tag :filter_to, 'Até:' %>
+  <%= text_field_tag :filter_to, @to, :class => "form-control datepicker", :placeholder => "Até" %>
+
+  <%= submit_tag "Ver Preços" %>
+
+<% end %>
+
+<table id="passeios" class="table table-striped">
   <tr>
       <th>Nome</th>
       <th>Atrativo</th>

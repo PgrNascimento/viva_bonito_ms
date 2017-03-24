@@ -14,5 +14,7 @@ Rails.application.routes.draw do
     resources :tours, only:[:index, :new]
   end
 
+  get 'home/filter_period' => 'home#filter_period'
+
 
 end
