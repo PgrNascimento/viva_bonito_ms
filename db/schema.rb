@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322003819) do
+ActiveRecord::Schema.define(version: 20170322231144) do
 
   create_table "budgets", force: :cascade do |t|
     t.datetime "start_date"
@@ -37,6 +37,19 @@ ActiveRecord::Schema.define(version: 20170322003819) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "prices", force: :cascade do |t|
+    t.integer  "tour_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.decimal  "adult_price"
+    t.decimal  "child_price"
+    t.decimal  "baby_price"
+    t.integer  "season_type"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["tour_id"], name: "index_prices_on_tour_id"
+  end
+
   create_table "tours", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -49,6 +62,7 @@ ActiveRecord::Schema.define(version: 20170322003819) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "category_id"
+    t.string   "site"
     t.index ["category_id"], name: "index_tours_on_category_id"
   end
 

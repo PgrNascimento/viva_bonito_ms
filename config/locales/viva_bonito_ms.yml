@@ -1,10 +1,16 @@
 pt-BR:
   activerecord:
     models:
-      category: "Categoria"
-      user: "Usuário"
+      category: Categoria
+      user: Usuário
+      price: Preço
     attributes:
       category:
-        name: "Nome"
-      user:        
-        password: "Senha"
+        name: Nome
+
+      user:
+        password: Senha
+      price:
+        low_season: Baixa Temporada
+        high_season: Alta Temporada
+        baby_price: Preço por Bebê
