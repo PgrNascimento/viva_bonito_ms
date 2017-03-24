@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-feature 'visitor gets to the home page' do
+feature 'visitor gets to the website' do
 
-  scenario 'and see a list of tours' do
+  scenario 'and finds the tours listed at the footer' do
 
     category = create(:category, name: 'Rapel')
     tours = create_list(:tour, 5, category: category)
 
     visit root_path
 
-    within('table#passeios') do
+    within('footer') do
 
       expect(page).to have_content(tours.first.name)
       expect(page).to have_content(tours.first.attraction)
