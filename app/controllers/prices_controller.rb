@@ -8,11 +8,11 @@ class PricesController < ApplicationController
   end
 
   def create
-
     @price = Price.new(price_params)
     if @price.save
       redirect_to @price
     else
+      @season_types = season_types
       flash[:error] = 'Não foi possível criar o preço'
       render :new
     end
@@ -31,6 +31,7 @@ class PricesController < ApplicationController
     if @price.update(price_params)
       redirect_to @price
     else
+      @season_types = season_types
       flash[:error] = 'O preço não pode ser atualizado'
       render :edit
     end

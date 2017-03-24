@@ -29,4 +29,19 @@ feature 'User edit price' do
     expect(page).to have_content 'O preço não pode ser atualizado'
 
   end
+
+  scenario ' with invalid period' do
+    price = create(:price)
+
+    visit edit_price_path(price)
+
+    fill_in 'Data Inicial', with: Date.today
+    fill_in 'Data Final', with: Date.today - 2.days
+
+    click_on 'Atualizar Preço'
+
+    expect(page).to have_content 'Preço com Vigência Inválida'
+
+  end
+
 end
