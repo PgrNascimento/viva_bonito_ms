@@ -18,7 +18,7 @@ feature 'User creates tour' do
 
     click_on 'Salvar Passeio'
 
-     expect(page).to have_content tour.name
+     expect(page).to have_css('h1', text: tour.name)
      expect(page).to have_content tour.description
      expect(page).to have_content tour.category.name
      expect(page).to have_content tour.attraction
