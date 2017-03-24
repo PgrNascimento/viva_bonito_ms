@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322231144) do
+ActiveRecord::Schema.define(version: 20170323230051) do
 
   create_table "budgets", force: :cascade do |t|
     t.datetime "start_date"
@@ -55,9 +55,6 @@ ActiveRecord::Schema.define(version: 20170322231144) do
     t.text     "description"
     t.string   "attraction"
     t.integer  "duration"
-    t.decimal  "adult_price"
-    t.decimal  "child_price"
-    t.decimal  "baby_price"
     t.decimal  "distance"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

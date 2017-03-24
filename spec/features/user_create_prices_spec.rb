@@ -2,21 +2,20 @@ require 'rails_helper'
 
 feature 'User create prices' do
   scenario 'successfully' do
-    tour = create(:tour)
-    price = Price.new(tour: tour, start_date: Date.today,
-                        end_date: Date.today + 3.days,
-                        adult_price: 100, child_price: 50, baby_price: 5,
-                        season_type: Price.season_types[:high_season])
+
+    price = build(:price)
+
+    human_price = Price.human_attribute_name(price.season_type.to_sym)
 
     visit new_price_path
 
-    select tour.name, from: 'Passeio'
+    select price.tour.name, from: 'Passeio'
     fill_in 'Data Inicial', with: price.start_date
     fill_in 'Data Final', with: price.end_date
     fill_in 'Preço por Adulto', with: price.adult_price
     fill_in 'Preço por Criança', with: price.child_price
     fill_in 'Preço por Bebê', with: price.baby_price
-    choose Price.human_attribute_name(price.season_type.to_sym)
+    choose human_price
 
     click_on 'Criar Preço'
 
@@ -26,6 +25,36 @@ feature 'User create prices' do
     expect(page).to have_content price.adult_price
     expect(page).to have_content price.child_price
     expect(page).to have_content price.baby_price
-    expect(page).to have_content Price.human_attribute_name(price.season_type.to_sym)
+    expect(page).to have_content human_price
+  end
+
+  scenario 'with invalid data' do
+    visit new_price_path
+
+    click_on 'Criar Preço'
+
+    expect(page).to have_content 'Não foi possível criar o preço'
+
+  end
+
+  scenario ' with invalid period' do
+    price = build(:price, start_date: Date.today, end_date: Date.today - 1.day)
+
+    human_price = Price.human_attribute_name(price.season_type.to_sym)
+
+    visit new_price_path
+
+    select price.tour.name, from: 'Passeio'
+    fill_in 'Data Inicial', with: price.start_date
+    fill_in 'Data Final', with: price.end_date
+    fill_in 'Preço por Adulto', with: price.adult_price
+    fill_in 'Preço por Criança', with: price.child_price
+    fill_in 'Preço por Bebê', with: price.baby_price
+    choose human_price
+
+    click_on 'Criar Preço'
+
+    expect(page).to have_content 'Preço com Vigência Inválida'
+
   end
 end

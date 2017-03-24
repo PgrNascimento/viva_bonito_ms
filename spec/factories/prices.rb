@@ -1,11 +1,11 @@
 FactoryGirl.define do
   factory :price do
-    tour nil
-    start_date "2017-03-22"
-    end_date "2017-03-22"
-    adult_price "9.99"
-    child_price "9.99"
-    baby_price "9.99"
-    season_type "MyString"
+    tour
+    start_date Date.today
+    end_date Date.today + 3.days
+    adult_price 100
+    child_price 50
+    baby_price 5
+    season_type Price.season_types[:high_season]
   end
 end

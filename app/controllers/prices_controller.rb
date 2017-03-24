@@ -1,20 +1,39 @@
 class PricesController < ApplicationController
+
+  before_action :set_price, only: [:edit, :update]
+
   def new
     @price = Price.new
-    @season_types = Price.season_types.to_a.map do |season|
-      OpenStruct.new(label: Price.human_attribute_name(season.first.to_sym),
-                     value: season.first)
-    end
+    @season_types = season_types
   end
 
   def create
+
     @price = Price.new(price_params)
-    @price.save
-    redirect_to @price
+    if @price.save
+      redirect_to @price
+    else
+      flash[:error] = 'Não foi possível criar o preço'
+      render :new
+    end
   end
 
   def show
-    @price = Price.find(params[:id])
+    @price = PricePresenter.new(Price.find(params[:id]))
+  end
+
+  def edit
+    @season_types = season_types
+  end
+
+  def update
+
+    if @price.update(price_params)
+      redirect_to @price
+    else
+      flash[:error] = 'O preço não pode ser atualizado'
+      render :edit
+    end
   end
 
   private
@@ -24,5 +43,13 @@ class PricesController < ApplicationController
                                   :child_price, :baby_price, :season_type)
   end
 
+  def set_price
+    @price = Price.find(params[:id])
+  end
 
+  def season_types
+    Price.season_types.map do |key, _|
+      [Price.human_attribute_name(key.to_sym), key]
+    end
+  end
 end

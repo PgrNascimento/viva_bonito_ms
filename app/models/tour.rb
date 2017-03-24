@@ -1,8 +1,9 @@
 class Tour < ApplicationRecord
 
-  validates :name, :description, :category, :attraction, :duration, :adult_price,
-            :child_price, :baby_price, :distance, presence: true
+  validates :name, :description, :category, :attraction, :duration, :distance, presence: true
 
-  belongs_to :category          
+  belongs_to :category
+
+  has_many :prices
 
 end
