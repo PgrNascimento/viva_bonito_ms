@@ -10,6 +10,24 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+    <style>
+      form {
+        color: #636363 !important;
+        font-size: medium !important;
+      }
+      table {
+        color: #636363 !important;
+        font-size: medium !important;
+      }
+      #passeios-rodape {
+        color: #919191 !important;
+        font-size: small !important;
+      }
+      a:link { color: #919191 !important; }
+      a:hover { color: #ffffff !important; }
+      a:visited { color: #636363 !important; }
+    </style>
+
   </head>
 
   <body>
@@ -65,15 +83,13 @@
     <div class="container" style="min-height:500px;width:60%;">
       <%= yield %>
     </div>
+    <br/>
+    <br/>
 
     <footer class="navbar navbar-inverse">
+      <br/>
+      <br/>
       <div class="row" style="align: center">
-        <style>
-          footer {color: #919191 !important; }
-          a:link { color: #919191 !important; }
-          a:hover { color: #ffffff !important; }
-          a:visited { color: #636363 !important; }
-        </style>
         <table id="passeios-rodape" style="margin: auto;width:100%">
           <tr>
             <th style="width: 16.5%;"></th>
