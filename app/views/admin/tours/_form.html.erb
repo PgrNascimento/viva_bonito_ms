@@ -1,4 +1,4 @@
-<%= simple_form_for @tour do |f| %>
+<%= simple_form_for([:admin, @tour]) do |f| %>
   <p><%= flash[:notice] %></p>
   <%= f.input :name, label: 'Nome' %>
   <%= f.input :description, label: 'Descrição' %>

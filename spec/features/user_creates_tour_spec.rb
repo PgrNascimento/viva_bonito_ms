@@ -2,10 +2,10 @@ require 'rails_helper'
 
 feature 'User creates tour' do
   scenario 'successfully' do
-
+    user = login
     tour = build(:tour)
 
-    visit root_path
+    visit dashboard_path
     click_on 'Novo Passeio'
 
     fill_in 'Nome', with: tour.name
@@ -25,17 +25,15 @@ feature 'User creates tour' do
      expect(page).to have_content tour.duration
      expect(page).to have_content tour.distance
      expect(page).to have_content tour.site
-
   end
 
   scenario 'With invalid data' do
+    user = login
 
-    visit root_path
+    visit dashboard_path
     click_on 'Novo Passeio'
     click_on 'Salvar Passeio'
 
     expect(page).to have_content 'Passeio não pode ser cadastrado, verifique os dados'
-
   end
-
 end

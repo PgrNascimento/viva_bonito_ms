@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'home#index'
-  resources :tours, only: [:new, :create, :show, :edit, :update]
+  resources :tours, only: [:show]
   resources :budgets, only: [ :new, :create, :show, :edit, :update ]
   resources :categories, only: [:index, :show]
   resources :prices, only: [:new, :create, :show, :edit, :update]
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :categories, only: [:index, :new, :create, :show]
-    resources :tours, only:[:index, :new]
+    resources :tours, only:[:index, :new, :create, :edit, :update, :destroy]
   end
 
 
