@@ -27,6 +27,8 @@ require 'rails_helper'
 
         click_on 'Ver Preços'
 
+        save_and_open_page
+
         expect(page).to have_css('h2', text: 'Preços para o período entre 2017-02-09 e 2017-02-10')
 
         within('table#precos') do
