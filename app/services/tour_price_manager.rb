@@ -16,6 +16,4 @@ class TourPriceManager
     tour.prices.where("start_date <= ?", date).where("end_date >= ?", date)
     .where(season_type: season_type).last
   end
-
-
 end
