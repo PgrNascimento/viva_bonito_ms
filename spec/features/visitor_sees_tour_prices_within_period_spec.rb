@@ -9,7 +9,7 @@ require 'rails_helper'
         tour2 = create(:tour, category: category, name: 'Cachoeira Boca da Onca')
         tour3 = create(:tour, category: category, name: 'Rapel Abismo Anhumas')
 
-        high_season_price_tour1 = create(:price, tour: tour1
+        high_season_price_tour1 = create(:price, tour: tour1,
                                             start_date: '2017-02-01',
                                             end_date: '2017-03-01',
                                             adult_price: 120,
@@ -67,34 +67,26 @@ require 'rails_helper'
 
         end
 
-        save_and_open_page
-
         expect(page).to have_css('h2', text: 'Preços para o período entre 2017-02-09 e 2017-02-10')
 
         within('table#prices_within_period') do
 
-          within('col#name') do
-            expect(page).to have_content('Nome do Passeio')
-            expect(page).to have_content('Flutuacao Rio Sucuri')
-            expect(page).to have_content('Cachoeira Boca da Onca')
-            expect(page).to have_content('Rapel Abismo Anhumas')
-          end
+          expect(page).to have_content('Nome do Passeio')
+          expect(page).to have_content('Flutuacao Rio Sucuri')
+          expect(page).to have_content('Cachoeira Boca da Onca')
+          expect(page).to have_content('Rapel Abismo Anhumas')
 
-          within('col#2017-02-09') do
-            expect(page).to have_content('2017-02-09')
-            expect(page).to have_content('Baixa')
-            expect(page).to have_content('90 59 0')
-            expect(page).to have_content('60 33 11')
-            expect(page).to have_content('700 412 134')
-          end
+          expect(page).to have_content('2017-02-09')
+          expect(page).to have_content('Baixa')
+          expect(page).to have_content('90')
+          expect(page).to have_content('60')
+          expect(page).to have_content('700')
 
-          within('col#2017-02-10') do
-            expect(page).to have_content('2017-02-10')
-            expect(page).to have_content('Alta')
-            expect(page).to have_content('120 99 13')
-            expect(page).to have_content('110 79 25')
-            expect(page).to have_content('898 630 420')
-          end
+          expect(page).to have_content('2017-02-10')
+          expect(page).to have_content('Alta')
+          expect(page).to have_content('120')
+          expect(page).to have_content('110')
+          expect(page).to have_content('898')
 
         end
 
