@@ -1,14 +1,16 @@
 require 'rails_helper'
 
 feature 'user informs high season period' do
+  before(:each) do
+    user = create(:user, email: 'email@email.com', password: 'epanenem')
+    sign_in user
+  end
 
   scenario 'successfully' do
 
     high_season = create(:high_season)
 
-    visit root_path
-
-    click_on 'Cadastrar Alta Temporada'
+    visit new_high_season_path
 
     fill_in 'Nome',     with: high_season.name
     fill_in 'Início',   with: high_season.start_date
@@ -26,9 +28,7 @@ feature 'user informs high season period' do
 
     high_season = build(:high_season,name:'Feriado', start_date: '2016-01-05', end_date: '2015-01-05')
 
-    visit root_path
-
-    click_on 'Cadastrar Alta Temporada'
+    visit new_high_season_path
 
     fill_in 'Nome',     with: high_season.name
     fill_in 'Início',   with: high_season.start_date
@@ -46,8 +46,7 @@ feature 'user informs high season period' do
 
   scenario 'without any information' do
 
-    visit root_path
-    click_on 'Cadastrar Alta Temporada'
+    visit new_high_season_path
     click_on 'Salvar'
 
     expect(page).to have_content('Não foi possível salvar a Alta Temporada')

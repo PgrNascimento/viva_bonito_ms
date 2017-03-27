@@ -5,9 +5,7 @@ feature 'visitor enters trip information' do
 
     budget = create(:budget)
 
-    visit root_path
-
-    click_on 'Criar Orçamento'
+    visit new_budget_path
 
     fill_in 'Início da Viagem',         with: budget.start_date
     fill_in 'Fim da Viagem',            with: budget.end_date
@@ -29,9 +27,7 @@ feature 'visitor enters trip information' do
   scenario 'valid field in blank' do
 
 
-    visit root_path
-
-    click_on 'Criar Orçamento'
+    visit new_budget_path
 
     click_on 'Exibir Orçamento'
 
