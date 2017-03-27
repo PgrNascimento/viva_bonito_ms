@@ -1,12 +1,16 @@
 require 'rails_helper'
 
 feature 'User creates tour' do
+  before(:each) do
+    user = create(:user, email: 'email@email.com', password: 'epanenem')
+    sign_in user
+  end
+
   scenario 'successfully' do
 
     tour = build(:tour)
 
-    visit root_path
-    click_on 'Novo Passeio'
+    visit new_tour_path
 
     fill_in 'Nome', with: tour.name
     fill_in 'Descrição', with: tour.description
@@ -30,8 +34,7 @@ feature 'User creates tour' do
 
   scenario 'With invalid data' do
 
-    visit root_path
-    click_on 'Novo Passeio'
+    visit new_tour_path
     click_on 'Salvar Passeio'
 
     expect(page).to have_content 'Passeio não pode ser cadastrado, verifique os dados'
