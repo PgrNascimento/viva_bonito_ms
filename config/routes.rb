@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'home#index'
+  get 'home/filter_period', 'home#filter_period'
   resources :tours, only: [:new, :create, :show, :edit, :update]
   resources :budgets, only: [ :new, :create, :show, :edit, :update ]
   resources :categories, only: [:index, :show]
