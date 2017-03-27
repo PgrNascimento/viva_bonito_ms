@@ -67,7 +67,7 @@ require 'rails_helper'
 
         end
 
-        expect(page).to have_css('h2', text: 'Preços para o período entre 2017-02-09 e 2017-02-10')
+        expect(page).to have_css('h2', text: 'Preços para o período entre 09/02/2017 e 10/02/2017')
 
         within('table#prices_within_period') do
 
@@ -76,17 +76,17 @@ require 'rails_helper'
           expect(page).to have_content('Cachoeira Boca da Onca')
           expect(page).to have_content('Rapel Abismo Anhumas')
 
-          expect(page).to have_content('2017-02-09')
+          expect(page).to have_content('09/02/2017')
           expect(page).to have_content('Baixa')
-          expect(page).to have_content('90')
-          expect(page).to have_content('60')
-          expect(page).to have_content('700')
+          expect(page).to have_content('R$ 90,00')
+          expect(page).to have_content('R$ 60,00')
+          expect(page).to have_content('R$ 700,00')
 
-          expect(page).to have_content('2017-02-10')
-          expect(page).to have_content('Alta')
-          expect(page).to have_content('120')
-          expect(page).to have_content('110')
-          expect(page).to have_content('898')
+          expect(page).to have_content('10/02/2017')
+          expect(page).to have_content('ALTA')
+          expect(page).to have_content('R$ 120,00')
+          expect(page).to have_content('R$ 110,00')
+          expect(page).to have_content('R$ 898,00')
 
         end
 

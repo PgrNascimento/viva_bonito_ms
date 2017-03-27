@@ -13,8 +13,7 @@ class TourPriceManager
 
   def tour_price_with_season
     season_type = high_season? ? 1 : 0  # low_season: 0, high_season: 1
-    tour.prices.where("start_date <= ?", date).where("end_date >= ?", date)
-    .where(season_type: season_type).last
+    tour.prices.where("start_date <= ? AND end_date >= ? AND season_type = ?", date, date, season_type).last
   end
 
 

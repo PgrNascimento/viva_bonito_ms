@@ -27,7 +27,7 @@
 
     <% unless @tours.nil? || @date_range.nil? %>
 
-    <h2><%= "Preços para o período entre #{@start_date} e #{@end_date}" %></h2>
+    <h2><%= "Preços para o período entre #{l @start_date, format: :default} e #{l @end_date, format: :default}" %></h2>
 
     <table id="prices_within_period" class="table table-striped">
       <colgroup>
@@ -42,7 +42,7 @@
         <th style="width:25%">Nome do Passeio</th>
         <% @date_range.each do |date| %>
           <th style="text-align:right">
-            <%= date %><br/>
+            <%= l date, format: :default %><br/>
           </th>
         <% end %>
       </tr>
@@ -63,11 +63,11 @@
           <% @date_range.each do |date| %>
           <td style="text-align:right;">
             <% manager = TourPriceManager.new(tour,date) %>
-            <strong><%= manager.high_season? ? 'Alta' : 'Baixa' %></strong><br/>
+            <strong><%= manager.high_season? ? 'ALTA' : 'Baixa' %></strong><br/>
             <% this_price = manager.tour_price_with_season %>
-            <%= this_price.adult_price %><br/>
-            <%= this_price.child_price %><br/>
-            <%= this_price.baby_price %>
+            <%= number_to_currency this_price.adult_price %><br/>
+            <%= number_to_currency this_price.child_price %><br/>
+            <%= number_to_currency this_price.baby_price %>
           <% end %>
           </td>
         </tr>
