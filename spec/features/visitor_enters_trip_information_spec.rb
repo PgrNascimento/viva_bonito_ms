@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 feature 'visitor enters trip information' do
-
   scenario 'successfully' do
 
     budget = create(:budget)

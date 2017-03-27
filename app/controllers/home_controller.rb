@@ -8,8 +8,9 @@ class HomeController < ApplicationController
     @end_date = Date.parse(params[:filter_to])
 
     @date_range = @start_date.step(@end_date, 1)
-    @tours = Tour.all
-
+    prices_in_period = Price.where("start_date <= ? AND end_date >= ?", @start_date, @end_date)
+    tours_id = prices_in_period.pluck(:tour_id)
+    @tours = Tour.where(id: tours_id)
     render 'index'
   end
 
