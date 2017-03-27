@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 feature 'User creates tour' do
-  before(:each) do
-    user = create(:user, email: 'email@email.com', password: 'epanenem')
-    sign_in user
-  end
 
   scenario 'successfully' do
     user = login
@@ -35,7 +31,7 @@ feature 'User creates tour' do
   scenario 'With invalid data' do
     user = login
 
-    visit new_tour_path
+    visit new_admin_tour_path
 
     click_on 'Salvar Passeio'
 
