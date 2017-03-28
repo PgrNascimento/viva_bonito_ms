@@ -18,7 +18,7 @@ module Admin
         redirect_to @category
       else
         flash.now[:error] = "Não foi possível criar categoria."
-        render 'new'
+        render :new
       end
     end
 
