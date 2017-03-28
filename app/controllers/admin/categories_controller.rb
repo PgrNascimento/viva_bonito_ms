@@ -15,7 +15,7 @@ module Admin
       @category = Category.new(category_params)
 
       if @category.save
-        redirect_to @category
+        redirect_to admin_categories_path
       else
         flash.now[:error] = "Não foi possível criar categoria."
         render :new
