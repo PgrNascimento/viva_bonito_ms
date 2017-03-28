@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resource  :dashboard, only: [:show]
 
   namespace :admin do
-    resources :categories, only: [:index, :new, :create, :show]
+    resources :categories, only: [:index, :new, :create]
     resources :tours, only:[:index, :new, :create, :edit, :update, :destroy, :show]
     resources :high_seasons, only: [:new, :create, :show, :index]
   end

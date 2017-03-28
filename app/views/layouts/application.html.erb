@@ -95,7 +95,7 @@
             <tr>
               <td></td>
               <td style="text-align: right"><%= link_to tour.name, tour_path(tour) %></td>
-              <td style="text-align: center"><%= tour.category.name %></td>
+              <td style="text-align: center"><%= link_to tour.category.name, category_path(tour.category.id) %></td>
               <td style="text-align: left"><%= tour.attraction %></td>
               <td style="text-align: left"><%= tour.site? ? link_to(tour.site, tour.site) : link_to('Ver Detalhes', tour_path(tour)) %></td>
               <td></td>
