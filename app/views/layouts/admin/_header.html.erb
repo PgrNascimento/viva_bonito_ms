@@ -22,7 +22,10 @@
         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configurações</a>
         </li>
         <li class="divider"></li>
-        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fa fa-sign-out fa-fw"></i> Sair
+          <% end %>
         </li>
       </ul>
       <!-- /.dropdown-user -->
@@ -52,6 +55,15 @@
           <ul class="nav nav-second-level">
             <li> <%= link_to 'Listar Categorias', admin_categories_path %> </li>
             <li> <%= link_to 'Nova Categoria', new_admin_category_path %> </li>
+          </ul>
+          <!-- /.nav-second-level -->
+        </li>
+
+        <li>
+          <a href="#"><i class="fa fa-list fa-fw"></i> Alta Temporada<span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level">
+            <li> <%= link_to 'Listar Temporadas', admin_high_seasons_path %> </li>
+            <li> <%= link_to 'Nova Temporada', new_admin_high_season_path %> </li>
           </ul>
           <!-- /.nav-second-level -->
         </li>

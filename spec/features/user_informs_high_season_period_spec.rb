@@ -7,16 +7,20 @@ feature 'user informs high season period' do
   end
 
   scenario 'successfully' do
-
     high_season = create(:high_season)
 
-    visit new_high_season_path
+    visit dashboard_path
+
+    click_on "Nova Temporada"
 
     fill_in 'Nome',     with: high_season.name
     fill_in 'Início',   with: high_season.start_date
     fill_in 'Fim',      with: high_season.end_date
 
+    
     click_on 'Salvar'
+
+
 
     expect(page).to have_content(high_season.name)
     expect(page).to have_content(high_season.start_date)
@@ -28,7 +32,7 @@ feature 'user informs high season period' do
 
     high_season = build(:high_season,name:'Feriado', start_date: '2016-01-05', end_date: '2015-01-05')
 
-    visit new_high_season_path
+    visit new_admin_high_season_path
 
     fill_in 'Nome',     with: high_season.name
     fill_in 'Início',   with: high_season.start_date
@@ -46,7 +50,7 @@ feature 'user informs high season period' do
 
   scenario 'without any information' do
 
-    visit new_high_season_path
+    visit new_admin_high_season_path
     click_on 'Salvar'
 
     expect(page).to have_content('Não foi possível salvar a Alta Temporada')
