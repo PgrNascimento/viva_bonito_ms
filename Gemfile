@@ -45,6 +45,10 @@ gem 'devise'
 
 gem "font-awesome-rails"
 
+gem 'momentjs-rails', '>= 2.9.0'
+
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+
 gem 'simplecov', :require => false, :group => :test
 
 group :development, :test do
