@@ -6,3 +6,7 @@
 //= require morris.min
 //= require cable
 //= require raphael.min
+//= require moment
+//= require moment-pt-br
+//= require bootstrap-datetimepicker
+//= require_tree .

@@ -1,9 +1,14 @@
 module Admin
   class ToursController < ApplicationController
     layout 'admin_application'
+    before_action :authenticate_user!
 
     def index
       @tours = Tour.all.order(:name)
+    end
+
+    def show
+      @tour = Tour.find(params[:id])
     end
 
     def new
@@ -13,9 +18,9 @@ module Admin
     def create
       @tour = Tour.new(tour_params)
       if @tour.save
-        redirect_to @tour
+        redirect_to([:admin, @tour])
       else
-        flash[:notice] = 'Passeio não pode ser cadastrado, verifique os dados'
+        flash[:error] = 'Passeio não pode ser cadastrado, verifique os dados'
         render :new
       end
     end
@@ -29,7 +34,7 @@ module Admin
       if @tour.update(tour_params)
         redirect_to @tour
       else
-        flash[:notice] = 'Não foi possível atualizar o passeio'
+        flash[:error] = 'Não foi possível atualizar o passeio'
         render :edit
       end
     end
