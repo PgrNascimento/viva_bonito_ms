@@ -40,4 +40,26 @@
 </div>
 <br/>
 <br/>
+<% if @prices.any? %>
+  <table id='tour_prices' class="table table-striped">
+    <tr>
+      <th style="text-align: center">Início</th>
+      <th style="text-align: center">Fim</th>
+      <th style="text-align: right">Adulto</th>
+      <th style="text-align: right">Criança</th>
+      <th style="text-align: right">Bêbes</th>
+    </tr>
+    <% @prices.each do |price| %>
+      <tr>
+        <td style="text-align: center"><%= l price.start_date, format: :default %></td>
+        <td style="text-align: center"><%= l price.end_date, format: :default %></td>
+        <td style="text-align: right"><%= number_to_currency price.adult_price %></td>
+        <td style="text-align: right"><%= number_to_currency price.child_price %></td>
+        <td style="text-align: right"><%= number_to_currency price.baby_price %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+<br/>
+<br/>
 <a href="javascript:history.back()" class="btn btn-default" role="button">Voltar</a>
