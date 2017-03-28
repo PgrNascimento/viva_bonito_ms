@@ -90,6 +90,64 @@ require 'rails_helper'
 
         end
 
+    end #scenario anterior
+
+    scenario 'Without date' do
+
+        category = create(:category)
+        tour1 = create(:tour, category: category, name: 'Flutuacao Rio Sucuri')
+        tour2 = create(:tour, category: category, name: 'Cachoeira Boca da Onca')
+
+        high_season_price_tour1 = create(:price, tour: tour1,
+                                            start_date: Date.today,
+                                            end_date: Date.today,
+                                            adult_price: 120,
+                                            child_price: 99,
+                                            baby_price: 13,
+                                            season_type: 1)
+
+        high_season_price_tour2 = create(:price, tour: tour2,
+                                            start_date: Date.today + 2.weeks,
+                                            end_date: Date.today + 1.month,
+                                            adult_price: 110,
+                                            child_price: 79,
+                                            baby_price: 25,
+                                            season_type: 1)
+
+
+
+        high_season = create(:high_season, name: 'Carnaval', start_date: Date.today, end_date: Date.today + 1.month)
+
+        visit root_path
+
+        within('div#prices_within_period') do
+
+          fill_in 'Desde:', with: ''
+          fill_in 'Até:',   with: ''
+
+          click_on 'Ver Preços'
+
+        end
+
+        expect(page).to have_css('h2', text: "Preços para o período entre #{I18n.l(Date.today)} e #{I18n.l(Date.today)}")
+
+        within('table#prices_within_period') do
+
+          expect(page).to have_content('Nome do Passeio')
+          expect(page).to have_content('Flutuacao Rio Sucuri')
+
+          expect(page).to have_content( I18n.l(Date.today))
+          expect(page).to have_content('ALTA')
+          expect(page).to have_content('R$ 120,00')
+          expect(page).to have_content('R$ 99,00')
+          expect(page).to have_content('R$ 13,00')
+
+          expect(page).not_to have_content('Cachoeira Boca da Onca')
+          expect(page).not_to have_content('R$ 110,00')
+          expect(page).not_to have_content('R$ 79,00')
+          expect(page).not_to have_content('R$ 25,00')
+        end
+
     end
 
   end
