@@ -11,11 +11,11 @@
       <div class="row">
         <div class="col col-lg-6">
           <%= label_tag :filter_from, 'Desde:' %>
-          <%= text_field_tag :filter_from, @start_date, :class => "form-control datepicker", :placeholder => "Desde" %>
+          <%= text_field_tag :filter_from, @start_date, :class => "form-control datepicker", :placeholder => "Desde", :data => { :'date-format' => "DD/MM/YYYY" } %>
         </div>
         <div class="col col-lg-6">
           <%= label_tag :filter_to, 'Até:' %>
-          <%= text_field_tag :filter_to, @end_date, :class => "form-control datepicker", :placeholder => "Até" %>
+          <%= text_field_tag :filter_to, @end_date, :class => "form-control datepicker", :placeholder => "Até", :data => { :'date-format' => "DD/MM/YYYY" } %>
         </div>
       </div>
 
