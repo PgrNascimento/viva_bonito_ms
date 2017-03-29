@@ -41,6 +41,28 @@ end
 end
 
 
+# tours
+[
+  ['Flutuação Nascente Rio Sucuri', 'Flutuação com snorkel nas águas mais cristalinas do Brasil.','Fazenda São Geraldo - Rio Sucuri',150,19,1,'http://riosucuri.com.br/'],
+  ['Flutuação Aquário Natural', 'O passeio de flutuação em Bonito MS que fica mais próximo ao centro da cidade.','Reserva Baía Bonita',150,7,1,'http://www.aquarionatural.com.br/'],
+  ['Cachoeiras Boca da Onça', 'Visite a cachoeira mais alta do estado do Mato Grosso do Sul! Ela tem mais de 150 metros de altura.','Boca da Onça Ecotur',360,59,2,'http://www.bocadaonca.com.br/'],
+  ['Boia Cross Rio Formoso', 'Desça as corredeiras de um dos principais rios de Bonito MS de boia!','Parque Ecológico Rio Formoso',90,7,3,'http://parquerioformoso.com.br/'],
+  ['Projeto Jibóia', 'Dê muita risada e perca seu medo de cobras a ponto de tirar foto com uma no ombro!','Projeto Jiboia',120,1,4,'http://www.projetojiboia.com.br/'],
+  ['Parque das Cachoeiras', 'Uma caminhada linda, gostosa e com paradas para banhos em 07 cachoeiras cristalinas.','Parque das Cachoeiras',180,11,2,'https://parquecachoeiras.com/'],
+  ['Abismo Anhumas', 'Uma experiência de rapel, gruta e flutuação simplesmente inigualável.','Abismo Anhumas',180,19,5,'http://abismoanhumas.com.br/']
+].each do |name, description, attraction, duration, distance, category_id, site|
+  Tour.create(
+  name: name,
+  description: description,
+  attraction: attraction,
+  duration: duration,
+  distance: distance,
+  category_id: category_id,
+  site: site
+  )
+end
+
+
 # prices
 [
   [1, '2017-01-01', '2017-06-30', 190, 130, 0, 1],
@@ -70,28 +92,6 @@ end
   child_price: child_price,
   baby_price: baby_price,
   season_type: season_type
-  )
-end
-
-
-# tours
-[
-  ['Flutuação Nascente Rio Sucuri', 'Flutuação com snorkel nas águas mais cristalinas do Brasil.','Fazenda São Geraldo - Rio Sucuri',150,19,1,'http://riosucuri.com.br/'],
-  ['Flutuação Aquário Natural', 'O passeio de flutuação em Bonito MS que fica mais próximo ao centro da cidade.','Reserva Baía Bonita',150,7,1,'http://www.aquarionatural.com.br/'],
-  ['Cachoeiras Boca da Onça', 'Visite a cachoeira mais alta do estado do Mato Grosso do Sul! Ela tem mais de 150 metros de altura.','Boca da Onça Ecotur',360,59,2,'http://www.bocadaonca.com.br/'],
-  ['Boia Cross Rio Formoso', 'Desça as corredeiras de um dos principais rios de Bonito MS de boia!','Parque Ecológico Rio Formoso',90,7,3,'http://parquerioformoso.com.br/'],
-  ['Projeto Jibóia', 'Dê muita risada e perca seu medo de cobras a ponto de tirar foto com uma no ombro!','Projeto Jiboia',120,1,4,'http://www.projetojiboia.com.br/'],
-  ['Parque das Cachoeiras', 'Uma caminhada linda, gostosa e com paradas para banhos em 07 cachoeiras cristalinas.','Parque das Cachoeiras',180,11,2,'https://parquecachoeiras.com/'],
-  ['Abismo Anhumas', 'Uma experiência de rapel, gruta e flutuação simplesmente inigualável.','Abismo Anhumas',180,19,5,'http://abismoanhumas.com.br/']
-].each do |name, description, attraction, duration, distance, category_id, site|
-  Tour.create(
-  name: name,
-  description: description,
-  attraction: attraction,
-  duration: duration,
-  distance: distance,
-  category_id: category_id,
-  site: site
   )
 end
 
