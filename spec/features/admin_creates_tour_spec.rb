@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'User creates tour' do
+feature 'Admin creates tour' do
   scenario 'successfully' do
     user = login
     tour = build(:tour)

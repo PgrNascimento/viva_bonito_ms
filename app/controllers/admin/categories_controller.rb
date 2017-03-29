@@ -4,7 +4,7 @@ module Admin
     before_action :authenticate_user!
 
     def index
-      @categories = Category.all
+      @categories = Category.all.order(:name)
     end
 
     def new

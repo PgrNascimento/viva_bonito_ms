@@ -17,11 +17,11 @@
         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
       </a>
       <ul class="dropdown-menu dropdown-user">
-        <li><a href="#"><i class="fa fa-user fa-fw"></i> Meu Perfil</a>
+        <!-- <li><a href="#"><i class="fa fa-user fa-fw"></i> Meu Perfil</a>
         </li>
         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configurações</a>
         </li>
-        <li class="divider"></li>
+        <li class="divider"></li> -->
         <li>
           <%= link_to destroy_user_session_path, method: :delete do %>
             <i class="fa fa-sign-out fa-fw"></i> Sair
@@ -64,6 +64,15 @@
           <ul class="nav nav-second-level">
             <li> <%= link_to 'Listar Temporadas', admin_high_seasons_path %> </li>
             <li> <%= link_to 'Nova Temporada', new_admin_high_season_path %> </li>
+          </ul>
+          <!-- /.nav-second-level -->
+        </li>
+
+        <li>
+          <a href="#"><i class="fa fa-list fa-fw"></i> Preços<span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level">
+            <li> <%= link_to 'Listar Preços', admin_prices_path %> </li>
+            <li> <%= link_to 'Novo Preço', new_admin_price_path %> </li>
           </ul>
           <!-- /.nav-second-level -->
         </li>

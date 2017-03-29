@@ -9,5 +9,4 @@ class ApplicationController < ActionController::Base
   def get_tours
     @tours = Tour.all
   end
-
 end
