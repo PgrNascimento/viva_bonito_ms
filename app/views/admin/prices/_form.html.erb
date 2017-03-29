@@ -1,8 +1,8 @@
 <%= flash[:error]%>
 <%= simple_form_for([:admin, @price]) do |f|%>
   <%= f.association :tour %>
-  <%= f.input :start_date, as: :string %>
-  <%= f.input :end_date, as: :string %>
+  <%= f.input :start_date, as: :date %>
+  <%= f.input :end_date, as: :date %>
   <%= f.input :adult_price %>
   <%= f.input :child_price %>
   <%= f.input :baby_price %>

@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :price do
     tour
-    start_date Date.today
-    end_date Date.today + 3.days
+    start_date "2017-03-31"
+    end_date "2017-04-05"
     adult_price 100
     child_price 50
     baby_price 5

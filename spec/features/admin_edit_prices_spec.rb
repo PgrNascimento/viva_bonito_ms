@@ -39,8 +39,17 @@ feature 'User edit price' do
 
     visit edit_admin_price_path(price)
 
-    fill_in 'Data Inicial', with: Date.today
-    fill_in 'Data Final', with: Date.today - 2.days
+    within('.price_start_date') do
+      select Date.today.day
+      select 'Março'
+      select '2017'
+    end
+
+    within('.price_end_date') do
+      select -2.days.from_now.day
+      select 'Março'
+      select '2017'
+    end
 
     click_on 'Atualizar Preço'
 
