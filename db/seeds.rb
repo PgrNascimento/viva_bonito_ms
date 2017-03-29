@@ -98,7 +98,8 @@ end
 
 # user
 [
-  ['user@site.com','password']
+  ['user@site.com','password'],
+  ['email@email.com', '123456']
 ].each do |email, password|
   User.create(
   email: email,

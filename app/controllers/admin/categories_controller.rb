@@ -4,7 +4,7 @@ module Admin
     before_action :authenticate_user!
 
     def index
-      @categories = Category.all
+      @categories = Category.all.order(:name)
     end
 
     def new
@@ -15,7 +15,7 @@ module Admin
       @category = Category.new(category_params)
 
       if @category.save
-        redirect_to @category
+        redirect_to admin_categories_path
       else
         flash.now[:error] = "Não foi possível criar categoria."
         render :new

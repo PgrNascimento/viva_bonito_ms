@@ -1,13 +1,16 @@
 require 'rails_helper'
 
-feature 'User create prices' do
+feature 'Admin create prices' do
+  before(:each) do
+    user = login
+  end
   scenario 'successfully' do
-
     price = build(:price)
 
     human_price = Price.human_attribute_name(price.season_type.to_sym)
 
-    visit new_price_path
+    visit dashboard_path
+    click_on 'Novo Preço'
 
     select price.tour.name, from: 'Passeio'
     fill_in 'Data Inicial', with: price.start_date
@@ -19,6 +22,7 @@ feature 'User create prices' do
 
     click_on 'Criar Preço'
 
+    expect(page).to have_current_path(admin_price_path(1))
     expect(page).to have_content price.tour.name
     expect(page).to have_content price.start_date
     expect(page).to have_content price.end_date
@@ -29,7 +33,7 @@ feature 'User create prices' do
   end
 
   scenario 'with invalid data' do
-    visit new_price_path
+    visit new_admin_price_path
 
     click_on 'Criar Preço'
 
@@ -42,7 +46,7 @@ feature 'User create prices' do
 
     human_price = Price.human_attribute_name(price.season_type.to_sym)
 
-    visit new_price_path
+    visit new_admin_price_path
 
     select price.tour.name, from: 'Passeio'
     fill_in 'Data Inicial', with: price.start_date
@@ -55,6 +59,5 @@ feature 'User create prices' do
     click_on 'Criar Preço'
 
     expect(page).to have_content 'Preço com Vigência Inválida'
-
   end
 end

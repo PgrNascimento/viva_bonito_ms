@@ -15,6 +15,7 @@ feature 'User create category' do
 
     click_on 'Criar Categoria'
 
+    expect(page).to have_current_path(admin_categories_path)
     expect(page).to have_content('Aventura')
   end
 
