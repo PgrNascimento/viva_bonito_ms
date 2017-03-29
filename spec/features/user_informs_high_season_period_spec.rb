@@ -14,10 +14,20 @@ feature 'user informs high season period' do
     click_on "Nova Temporada"
 
     fill_in 'Nome',     with: high_season.name
-    fill_in 'Início',   with: high_season.start_date
-    fill_in 'Fim',      with: high_season.end_date
 
-    
+    within('.high_season_start_date') do
+      select high_season.start_date.day
+      select 'Março'
+      select '2017'
+    end
+
+    within('.high_season_end_date') do
+      select high_season.end_date.day
+      select 'Março'
+      select '2017'
+    end
+
+
     click_on 'Salvar'
 
 

@@ -13,8 +13,18 @@ feature 'Admin create prices' do
     click_on 'Novo Preço'
 
     select price.tour.name, from: 'Passeio'
-    fill_in 'Data Inicial', with: price.start_date
-    fill_in 'Data Final', with: price.end_date
+    within('.price_start_date') do
+      select '28'
+      select 'Março'
+      select '2017'
+    end
+
+    within('.price_end_date') do
+      select '31'
+      select 'Março'
+      select '2017'
+    end
+
     fill_in 'Preço por Adulto', with: price.adult_price
     fill_in 'Preço por Criança', with: price.child_price
     fill_in 'Preço por Bebê', with: price.baby_price
@@ -24,8 +34,8 @@ feature 'Admin create prices' do
 
     expect(page).to have_current_path(admin_price_path(1))
     expect(page).to have_content price.tour.name
-    expect(page).to have_content price.start_date
-    expect(page).to have_content price.end_date
+    expect(page).to have_content I18n.l(price.start_date)
+    expect(page).to have_content I18n.l(price.end_date)
     expect(page).to have_content price.adult_price
     expect(page).to have_content price.child_price
     expect(page).to have_content price.baby_price
@@ -49,8 +59,19 @@ feature 'Admin create prices' do
     visit new_admin_price_path
 
     select price.tour.name, from: 'Passeio'
-    fill_in 'Data Inicial', with: price.start_date
-    fill_in 'Data Final', with: price.end_date
+
+    within('.price_start_date') do
+      select price.start_date.day
+      select 'Março'
+      select '2017'
+    end
+
+    within('.price_end_date') do
+      select price.end_date.day
+      select 'Março'
+      select '2017'
+    end
+
     fill_in 'Preço por Adulto', with: price.adult_price
     fill_in 'Preço por Criança', with: price.child_price
     fill_in 'Preço por Bebê', with: price.baby_price
