@@ -39,25 +39,25 @@ feature 'User view tours' do
     end
   end
 
-  scenario 'and views edit and delete actions on table' do
-    user = login
-
-    category = create(:category)
-    second_tour = create(:tour, name: "Caminhada", category: category)
-    third_tour = create(:tour, name: "Raft", category: category)
-    first_tour = create(:tour, name: "Aventura", category: category)
-
-    visit admin_tours_path
-
-    expect(page).to have_link(nil, href: edit_admin_tour_path(first_tour))
-    expect(page).to have_xpath("//i[contains(@class, 'fa fa-times fa-fw')]/parent::a[@href='#{admin_tour_path(first_tour)}']")
-
-    expect(page).to have_link(nil, href: edit_admin_tour_path(second_tour))
-    expect(page).to have_xpath("//i[contains(@class, 'fa fa-times fa-fw')]/parent::a[@href='#{admin_tour_path(second_tour)}']")
-
-    expect(page).to have_link(nil, href: edit_admin_tour_path(third_tour))
-    expect(page).to have_xpath("//i[contains(@class, 'fa fa-times fa-fw')]/parent::a[@href='#{admin_tour_path(third_tour)}']")
-  end
+  # scenario 'and views edit and delete actions on table' do
+  #   user = login
+  #
+  #   category = create(:category)
+  #   second_tour = create(:tour, name: "Caminhada", category: category)
+  #   third_tour = create(:tour, name: "Raft", category: category)
+  #   first_tour = create(:tour, name: "Aventura", category: category)
+  #
+  #   visit admin_tours_path
+  #
+  #   expect(page).to have_link(nil, href: edit_admin_tour_path(first_tour))
+  #   expect(page).to have_xpath("//i[contains(@class, 'fa fa-times fa-fw')]/parent::a[@href='#{admin_tour_path(first_tour)}']")
+  #
+  #   expect(page).to have_link(nil, href: edit_admin_tour_path(second_tour))
+  #   expect(page).to have_xpath("//i[contains(@class, 'fa fa-times fa-fw')]/parent::a[@href='#{admin_tour_path(second_tour)}']")
+  #
+  #   expect(page).to have_link(nil, href: edit_admin_tour_path(third_tour))
+  #   expect(page).to have_xpath("//i[contains(@class, 'fa fa-times fa-fw')]/parent::a[@href='#{admin_tour_path(third_tour)}']")
+  # end
 
   scenario 'and edits a tour' do
     user = login

@@ -21,10 +21,6 @@ module Admin
       end
     end
 
-    def show
-      @high_season = HighSeason.find(params[:id])
-    end
-
     private
     def high_season_params
       params.require(:high_season).permit(:name, :start_date, :end_date)

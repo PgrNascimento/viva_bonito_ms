@@ -38,12 +38,7 @@ module Admin
         render :edit
       end
     end
-
-    def destroy
-      Tour.find(params[:id]).destroy
-      redirect_to :back
-    end
-
+    
     private
     def tour_params
       params.require(:tour).permit(:name, :description, :category_id, :attraction,
