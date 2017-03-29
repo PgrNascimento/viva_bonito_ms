@@ -20,3 +20,6 @@ pt-BR:
         child_price: Preço por Criança
         baby_price: Preço por Bebê
         season_type: Temporada
+  date:
+    formats:
+      week: "%a"
