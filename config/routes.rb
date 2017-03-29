@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   get 'home/filter_period', 'home#filter_period'
 
   resources :tours, only: [:show]
-  resources :budgets, only: [:new, :create, :show, :edit, :update]
   resource  :dashboard, only: [:show]
+  resources :categories, only: [:index, :show]
+  resources :budgets, only: [:new, :create, :show, :edit, :update]
 
   namespace :admin do
     resources :categories, only: [:index, :new, :create]
