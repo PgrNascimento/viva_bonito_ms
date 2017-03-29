@@ -9,75 +9,18 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <style>
-      form {
-        color: #636363 !important;
-        font-size: medium !important;
-      }
-      table {
-        color: #636363 !important;
-        font-size: small !important;
-      }
-      #passeios-rodape {
-        color: #919191 !important;
-        font-size: small !important;
-      }
-      a:link { color: #919191 !important; }
-      a:hover { color: #ffffff !important; }
-      a:visited { color: #636363 !important; }
-    </style>
+    <link rel="stylesheet" media="all" href="https://bootswatch.com/lumen/bootstrap.min.css" data-turbolinks-track="reload" />
 
   </head>
 
-  <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#" style="color: #ffffff !important;">
-                  Viva Bonito MS - Simplificando os preços de Bonito MS para você!
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="height:300px">
-      <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
-        <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
-        <li data-target="#carousel-example-generic" data-slide-to="3" class=""></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="item active" style="height:300px; background-image: url(<%=image_path('passeio-bonito-ms-flutuacao-nascente-azul.png')%>); background-position: center;">
-          <img src="<%=image_path('clear.png')%>">
-        </div>
-        <div class="item" style="height:300px; background-image: url(<%=image_path('passeio-bonito-ms-boia-cross-parque-ecologico-rio-formoso.png')%>); background-position: center;">
-          <img src="<%=image_path('clear.png')%>">
-        </div>
-        <div class="item" style="height:300px; background-image: url(<%=image_path('passeio-bonito-ms-mergulho-com-cilindro-lagoa-misteriosa.png')%>); background-position: center;">
-          <img src="<%=image_path('clear.png')%>">
-        </div>
-        <div class="item" style="height:300px; background-image: url(<%=image_path('passeio-bonito-ms-cachoeira-boca-da-onca.png')%>); background-position: center;">
-          <img src="<%=image_path('clear.png')%>">
-        </div>
-      </div>
-      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-
-    <div class="container" style="min-height:500px;width:60%;">
+  <body style="background-image:url(<%=image_url('peixes-no-rio-bonito-ms.jpg')%>);background-position:center;background-size:100%;background-attachment:fixed;">
+    <div class="container" style="min-height:750px;width:50%;<%= controller_name == 'home' ? '' : 'margin-top:10%;background-color:white;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);'%>">
       <%= yield %>
     </div>
     <br/>
     <br/>
 
-    <footer class="navbar navbar-inverse">
+    <footer style="width:100%;background-image:url(<%=image_url('footer.jpg')%>);background-position:center;background-size:100% 100%;background-attachment:fixed;">
       <br/>
       <br/>
       <div class="row" style="align: center">
@@ -105,7 +48,7 @@
       <br/>
       <div class="row" style="text-align: center">
           <div class="col-lg-12">
-              <p>&copy; VivaBonito - Campus Code - <a href="https://campuscode.com.br/imersao-web">Imersão Web<a></p>
+              <p>&copy; Viva Bonito MS - Campus Code - <a href="https://campuscode.com.br/imersao-web">Imersão Web<a></p>
           </div>
       </div>
     </footer>
