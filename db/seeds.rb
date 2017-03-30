@@ -43,22 +43,21 @@ end
 
 # tours
 [
-  ['Flutuação Nascente Rio Sucuri', 'Flutuação com snorkel nas águas mais cristalinas do Brasil.','Fazenda São Geraldo - Rio Sucuri',150,19,1,'http://riosucuri.com.br/'],
-  ['Flutuação Aquário Natural', 'O passeio de flutuação em Bonito MS que fica mais próximo ao centro da cidade.','Reserva Baía Bonita',150,7,1,'http://www.aquarionatural.com.br/'],
-  ['Cachoeiras Boca da Onça', 'Visite a cachoeira mais alta do estado do Mato Grosso do Sul! Ela tem mais de 150 metros de altura.','Boca da Onça Ecotur',360,59,2,'http://www.bocadaonca.com.br/'],
-  ['Boia Cross Rio Formoso', 'Desça as corredeiras de um dos principais rios de Bonito MS de boia!','Parque Ecológico Rio Formoso',90,7,3,'http://parquerioformoso.com.br/'],
-  ['Projeto Jibóia', 'Dê muita risada e perca seu medo de cobras a ponto de tirar foto com uma no ombro!','Projeto Jiboia',120,1,4,'http://www.projetojiboia.com.br/'],
-  ['Parque das Cachoeiras', 'Uma caminhada linda, gostosa e com paradas para banhos em 07 cachoeiras cristalinas.','Parque das Cachoeiras',180,11,2,'https://parquecachoeiras.com/'],
-  ['Abismo Anhumas', 'Uma experiência de rapel, gruta e flutuação simplesmente inigualável.','Abismo Anhumas',180,19,5,'http://abismoanhumas.com.br/']
-].each do |name, description, attraction, duration, distance, category_id, site|
+  ['Flutuação Nascente', 'Flutuação com snorkel nas águas mais cristalinas do Brasil.','Fazenda São Genaro',150,19,1],
+  ['Flutuação Cristalina', 'O passeio de flutuação em Bonito MS que fica mais próximo ao centro da cidade.','Reserva Linda',150,7,1],
+  ['Cachoeiras', 'Visite a cachoeira mais alta do estado do Mato Grosso do Sul! Ela tem mais de 150 metros de altura.','Reserva Ecotur',360,59,2],
+  ['Boia Cross', 'Desça as corredeiras de um dos principais rios de Bonito MS de boia!','Parque Ambiental',90,7,3],
+  ['Palestra da Cobra', 'Dê muita risada e perca seu medo de cobras a ponto de tirar foto com uma no ombro!','Auditório Urbano',120,1,4],
+  ['Parque das Quedas', 'Uma caminhada linda, gostosa e com paradas para banhos em 07 cachoeiras cristalinas.','Quedas Cristalinas',180,11,2],
+  ['Caverna do Rapel', 'Uma experiência de rapel, gruta e flutuação simplesmente inigualável.','Morro de Cima',180,19,5]
+].each do |name, description, attraction, duration, distance, category_id|
   Tour.create(
   name: name,
   description: description,
   attraction: attraction,
   duration: duration,
   distance: distance,
-  category_id: category_id,
-  site: site
+  category_id: category_id
   )
 end
 

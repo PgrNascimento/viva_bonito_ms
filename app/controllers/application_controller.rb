@@ -7,6 +7,6 @@ class ApplicationController < ActionController::Base
   end
 
   def get_tours
-    @tours = Tour.all
+    @tours = Tour.all.order('name ASC')
   end
 end
